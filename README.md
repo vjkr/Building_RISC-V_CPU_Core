@@ -59,7 +59,17 @@ Also noteworthy is the fact that TL-Verilog is really a Verilog implementation o
 
 ## Sequential circuits
 \in TLV, >>1 and >>2 implement previous version and pre-previous versions with the help of FFs \
-<img width="514" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/40b32b0f-08b5-4107-8170-555f0af750e5">
+<img width="514" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/40b32b0f-08b5-4107-8170-555f0af750e5">\
+
+A simple counter implementation can be done using following code\
+``` $num[31:0] = $reset ? 1 : (>>1$num + >>2$num);```
+
+<img width="960" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/34aef911-6178-4e60-9b51-d2d28b59e155">\
+
+Use similar logic to connect output value of calculator (I have done for parallel adder) to input, and reset value when reset is asserted. \
+<img width="960" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/254c69a3-7837-4b48-bbd9-b68a0e7593c5">
+
+
 
 
 
