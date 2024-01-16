@@ -35,6 +35,18 @@ TL-Verilog, your assignment statement acts as the declaration of its output sign
 There was no need to write a test bench to provide stimulus (input) to your inverter. Makerchip provides random stimulus for dangling inputs.\
 <img width="960" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/0febf166-6ed7-4195-b147-55574cfc01da">\
 
+Indentation\
+In TL-Verilog (within \TLV code blocks), indentation and whitespace are meaningful. Tabs (which have no consistently-defined behavior) are not permitted. Each level of indentation is 3 spaces (and the Makerchip editor helps with this).\
+
+Signal Names\
+As long as you stick with the suggested signal names throughout this course, you won’t have any trouble, but, for those who might wish to veer off from the script a bit, TL-Verilog is picky about signal names too. \
+Implemented basic gates and full adder\
+<img width="960" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/2a9bdd5a-4626-4499-bfc7-efb653e01f83">\
+Learnig arithmetic operations using an example of Parallel adder (implemented using + expression)\
+<img width="960" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/799cdd80-3808-451a-87be-dc6b06527c13">
+
+
+
 
 
 
