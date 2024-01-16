@@ -45,6 +45,14 @@ Implemented basic gates and full adder\
 Learnig arithmetic operations using an example of Parallel adder (implemented using + expression)\
 <img width="960" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/799cdd80-3808-451a-87be-dc6b06527c13">\
 Verilog provides no less than six reasonable syntaxes for coding a multiplexer, each with pros and cons. TL-Verilog favors the use of the ternary (? :) operator, and we will stick with this throughout the course. 
+## Lab Calculator implementation
+I am unable to implement calculator using ternary operator, keeping this for future work\
+<img width="959" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/b33add1a-7b8e-4b76-9411-36bb7f4b4141">\
+limiting values on val1 and val2 which will help in analyzing the waveforms easily.I could not do this because of calculator hence did on parallel adder\
+<img width="960" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/c1900b38-c117-4ebc-a1cf-065a595df426">
+
+
+
 
 
 
