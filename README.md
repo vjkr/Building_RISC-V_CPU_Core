@@ -49,7 +49,20 @@ Verilog provides no less than six reasonable syntaxes for coding a multiplexer, 
 I am unable to implement calculator using ternary operator, keeping this for future work\
 <img width="959" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/b33add1a-7b8e-4b76-9411-36bb7f4b4141">\
 limiting values on val1 and val2 which will help in analyzing the waveforms easily.I could not do this because of calculator hence did on parallel adder\
-<img width="960" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/c1900b38-c117-4ebc-a1cf-065a595df426">
+<img width="960" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/c1900b38-c117-4ebc-a1cf-065a595df426">\
+
+I am able to generate viz but not exact results. As i am using viz library for calculator but my code is parallel adder\
+<img width="960" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/c1f3457e-c12a-4bc2-89f8-d9a15ab28920">\
+
+Also noteworthy is the fact that TL-Verilog is really a Verilog implementation of TL-X, a language extension defined to layer atop any HDL to extend it with transaction-level features. So there is a migration path from any supported HDL (and, as of this writing, Verilog is the only one).\
+<img width="352" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/8210fb6e-c97d-4aa8-bacf-f8259a3dc274">\
+
+## Sequential circuits
+\in TLV, >>1 and >>2 implement previous version and pre-previous versions with the help of FFs \
+<img width="514" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/40b32b0f-08b5-4107-8170-555f0af750e5">
+
+
+
 
 
 
