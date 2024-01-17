@@ -121,8 +121,57 @@ Within several hours, you will construct a CPU core that could be appropriate as
 We will start by implementing enough of the CPU to execute our test program. As you add each new piece of functionality, you will see in the VIZ pane the behavior you implemented, with more and more of the test program executing correctly until it is successfully summing numbers from one to nine. Then we will go back to implement support for the bulk of the RV32I instruction set.\
 <img width="499" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/44d4e3af-73ef-4f1f-bd16-18223b2364dd">\
 In this course, we are focused on the CPU core only. We are ignoring all of the logic that would be necessary to interface with the surrounding system, such as input/output (I/O) controllers, interrupt logic, system timers, etc.It is typical to implement separate, single-cycle instruction and data caches, and our IMem and DMem are not unlike such caches.\
-Trying initial PC logic\
+### Trying initial PC logic\
 <img width="388" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/d34ffca1-2ef9-4c91-986e-0515938e2a95">\
+I could recreate the diagram and waveforms from reference solutions. Somehow I was expected to mention array size explicitly for 2nd line of code. + adding 4 is an important part of this design. Else PC will not be able to jump to next instruction.\
+<img width="960" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/491c7302-cbd0-410e-9ead-c4bb5212d8a4">\
+
+### Trying instruction memory.\
+Instantiate verilog macro
+``` `READONLY_MEM($addr, $$read_data[31:0]) ```
+\Typically, a memory structure like our IMem would be implemented using a physical structure called static random access memory, or SRAM. The address would be provided in one clock cycle, and the data would be read out in the next cycle. Our entire CPU, however, will execute within a single clock cycle. Our array provides its output data on the same clock cycle as the input address. Our macro would result in an implementation using flip-flops that would be far less optimal than SRAM.\
+<img width="343" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/88d022b9-4d73-42f6-a860-a91f1b3755f4">\
+Thanks to time spent on PC logic, I could implement IM easily\
+<img width="960" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/a8edf7db-ffe5-4957-8be0-6c9e73c5c30d">\
+### tRYING Decode Logic: Instruction Type\
+Before we can interpret the instruction, we must know its type. This is determined by its opcode, in $instr[6:0]. In fact, $instr[1:0] must be 2'b11 for valid RV32I instructions. We will assume all instructions to be valid, so we can simply ignore these two bits. The ISA defines the instruction type to be determined as follows.\
+<img width="494" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/88a01eb5-d28c-42fe-b6b5-53cb52a0b090">\
+Unfortunately I could not write comparison operation in verilog, but did OR operation and implemented Instruction decode
+<img width="960" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/61cc8ad2-caec-4258-b188-9eb53c068ceb">\
+### Decode Logic: Instruction Fields
+Now, based on the instruction type, we can extract the instruction fields. Most fields always come from the same bits regardless of the instruction type but only have meaning for certain instruction types. The imm field, an "immediate" value embedded in the instruction itself, is the exception. It is constructed from different bits depending on the instruction type.\
+<img width="500" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/25f3529f-16da-49bb-a593-fbd053f610e5">\
+### Decode Logic: Instruction
+<img width="493" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/fd9ec56c-e758-46cf-a7dc-7b3ff62a3ca5">\
+<img width="960" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/d84aefea-581c-4724-ad5d-bd1408f69d86">\
+### Register File Read
+Modify the appropriate RF macro arguments to connect the decode output signals to the register file read input signals to read the correct registers when they are needed. Connect the output read data to new signals named $src1_value and $src2_value by replacing the appropriate macro arguments with these new signal names. (Bit ranges are not needed, as they are explicit within the macro definition.)\
+What does RD mean in RISC-V?
+rs1 (5 bits) and rs2 (5 bits): Specify, by index, the first and second operand registers respectively (i.e., source registers). rd (5 bits): Specifies, by index, the destination register to which the computation result will be directed.\
+Something doesnot seem write at x12, But let us continue
+<img width="959" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/d6a517dd-6a2d-4e35-ac19-bfd5957d65a4">\
+
+### Arithmetic Logic Unit
+At this point, we are only going to implement support for the instructions in our test program. Since branch instructions do not produce a result value, we only need to support ADDI (which adds the immediate value to source register 1) and ADD (which adds the two source register values). \
+Still not right I guess, problem with x12
+<img width="960" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/a48a3ad3-6eec-4ec2-be01-331a85f544e7">\
+
+### Register File Write
+$result needs to be written back to the destination register (rd) in the register file (if the instruction has a destination register).\
+After connecting result signal to RF, X12 problem has vanished.\
+<img width="960" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/07a8539d-460c-47ea-93f0-a821f3a604dc">
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
