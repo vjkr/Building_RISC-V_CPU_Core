@@ -80,6 +80,54 @@ A compiler does the job of translating a program’s source code into a binary f
 You will use assembly-level test programs in this course to debug your RISC-V design.\
 <img width="496" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/bf2fca7b-ac42-49d4-b545-889156f9f67f">\
 
+\In this course, you will build a simple CPU that supports the RISC-V ISA. RISC-V has very rapidly gained popularity due to its open nature--its explicit lack of patent protection and its community focus. Following the lead of RISC-V, MIPS and PowerPC have subsequently gone open as well.
+
+RISC-V is also popular for its simplicity and extensibility, which makes it a great choice for this course. "RISC", in fact, stands for "reduced instruction set computing" and contrasts with "complex instruction set computing" (CISC). RISC-V (pronounced "risk five") is the fifth in a series of RISC ISAs from UC Berkeley. You will implement the core instructions of the base RISC-V instruction set (RV32I), which contains just 47 instructions. Of these, you will implement 31 (Of the remaining 16, 10 have to do with the surrounding system, and 6 provide support for storing and loading small values to and from memory).\\
+
+Like other RISC (and even CISC) ISAs, RISC-V is a load-store architecture. It contains a register file capable of storing up to 32 values (well, actually 31). Most instructions read from and write back to the register file. Load and store instructions transfer values between memory and the register file.\
+All instructions are 32 bits. The R-type encoding provides a general layout of the instruction fields used by all instruction types. R-type instructions have no immediate value. Other instruction types use a subset of the R-type fields and provide an immediate value in the remaining bits.\
+<img width="501" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/3d994c76-fd27-4cfd-b3a1-056cf8501c4f">\
+# uNDERSTANDING RISC AND CISC
+ONE OFTHE BEST VIDEOS EVER\ 
+https://www.youtube.com/watch?v=6Rxade2nEjk
+<img width="671" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/d4822a64-2087-438e-849b-2f49eb6be5ed">\
+<img width="900" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/1e801792-a992-499c-bc05-dd8421cc4208">\
+
+## What to build and resources
+In this chapter, you will build a subset of your RISC-V CPU core capable of executing a test program that adds numbers from 1 to 9. Subsequently, you will complete the functionality of your core.
+
+By the end of this chapter, you should be able to:
+- Explain the role of the fundamental components of a basic CPU microarchitecture.
+- Be experienced in expressing digital logic using TL-Verilog.
+- Develop an appreciation for the debug process within Makerchip, including: the interpretation of messages in the logs use of visual debug to understand the overall behavior of your logic, use of the waveform viewer to understand detailed behavior, tracing faulty behavior from symptom to cause
+- Instantiate pre-existing Verilog and TL-Verilog components.
+\The program we will execute on the CPU core is\
+<img width="960" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/8058a538-38bd-41df-817f-51491ad9d56b">\
+\Open the makerchip starting point program from Steve's github repo\
+<img width="958" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/532996b3-aa98-4f15-9bf3-8bb715466738">\
+\Reference solutioons which are hidden\
+<img width="960" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/0f30b89e-c914-471f-b596-4f686b5872a0">\
+
+## BUILD using github and python app
+Showcasing Your Work\
+git clone https://github.com/stevehoover/LF-Building-a-RISC-V-CPU-Core.git(and enter your credentials)\
+Then install the Makerchip app:\
+pip3 install makerchip-app\
+Installing makerchip on desktop and launching\
+<img width="960" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/98a7d828-fb13-44b4-96d7-2afd5fc0dedc">\
+
+## CPU Microarchitecture and Implementation Plan
+Within several hours, you will construct a CPU core that could be appropriate as a microcontroller. In contrast, a desktop or server CPU chip might be built by a team of hundreds of seasoned engineers over a period of several years.Our CPU will fully execute one instruction with each new clock cycle. Doing all of this work within a single clock cycle is only possible if the clock is running relatively slowly, which is our assumption.\
+We will start by implementing enough of the CPU to execute our test program. As you add each new piece of functionality, you will see in the VIZ pane the behavior you implemented, with more and more of the test program executing correctly until it is successfully summing numbers from one to nine. Then we will go back to implement support for the bulk of the RV32I instruction set.\
+<img width="499" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/44d4e3af-73ef-4f1f-bd16-18223b2364dd">\
+In this course, we are focused on the CPU core only. We are ignoring all of the logic that would be necessary to interface with the surrounding system, such as input/output (I/O) controllers, interrupt logic, system timers, etc.It is typical to implement separate, single-cycle instruction and data caches, and our IMem and DMem are not unlike such caches.\
+Trying initial PC logic\
+<img width="388" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/d34ffca1-2ef9-4c91-986e-0515938e2a95">\
+
+
+
+
+
 
 
 
