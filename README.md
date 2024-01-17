@@ -161,6 +161,22 @@ $result needs to be written back to the destination register (rd) in the registe
 After connecting result signal to RF, X12 problem has vanished.\
 <img width="960" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/07a8539d-460c-47ea-93f0-a821f3a604dc">
 
+### Branch Logic
+The last piece of the puzzle to get your test program executing properly is to implement the branch instructions. Our test program uses BLT to repeat the loop body if the next incrementing value to accumulate is less than ten. And it uses BGE to loop indefinitely at the end of the test program. We’ll go ahead and implement all the conditional branch instructions now.
+
+A conditional branch instruction will branch to a target PC if its condition is true. Conditions are a comparison of the two source register values. Implementing conditional branch instructions will require:
+
+- Determining whether the instruction is a branch that is taken ($taken_br).
+- Computing the branch target ($br_tgt_pc).
+- Updating the PC ($pc) accordingly.\
+<img width="535" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/e1b95601-ba4d-4f71-be7f-c1a012711c73">\
+<img width="553" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/17d897cc-d2ba-4247-ade9-bb0773aadbf2">\
+<img width="409" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/a94aedd4-cb07-4baa-a871-d452712ac9ac">\
+
+
+
+
+
 
 
 
