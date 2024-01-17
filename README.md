@@ -67,7 +67,19 @@ A simple counter implementation can be done using following code\
 <img width="960" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/34aef911-6178-4e60-9b51-d2d28b59e155">\
 
 Use similar logic to connect output value of calculator (I have done for parallel adder) to input, and reset value when reset is asserted. \
-<img width="960" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/254c69a3-7837-4b48-bbd9-b68a0e7593c5">
+<img width="960" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/254c69a3-7837-4b48-bbd9-b68a0e7593c5">\
+
+## RISC-V
+By the end of this chapter, you should understand:
+- The role of compilers and assemblers.
+- The role of an instruction set architecture (ISA).
+- The general properties of RISC-V versus other ISAs.
+
+\Likely, you have experience writing programs in languages like Python, JavaScript, Java, C++, etc. These languages are portable and can run on just about any CPU hardware. CPU’s do not execute these languages directly. They execute raw machine instructions that have been encoded into bits as defined by an instruction set architecture (ISA). Popular ISAs include x86, ARM, MIPS, RISC-V, etc.\
+A compiler does the job of translating a program’s source code into a binary file or executable containing machine instructions for a particular ISA.The binary file is easily interpreted by hardware, but not so easily by a human. The ISA defines a human-readable form of every instruction, as well as the mapping of those human-readable assembly instructions into bits. \
+You will use assembly-level test programs in this course to debug your RISC-V design.\
+<img width="496" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/bf2fca7b-ac42-49d4-b545-889156f9f67f">\
+
 
 
 
