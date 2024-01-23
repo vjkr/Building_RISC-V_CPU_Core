@@ -173,9 +173,15 @@ A conditional branch instruction will branch to a target PC if its condition is 
 <img width="553" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/17d897cc-d2ba-4247-ade9-bb0773aadbf2">\
 <img width="409" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/a94aedd4-cb07-4baa-a871-d452712ac9ac">\
 iMPLEMENTING Branch logic is confusing. I will keep it for future work.
-tHIS IS Overall a great experience with RISC-V!!\
+
 <img width="960" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/2654c18e-58c8-41d9-bb74-f1cc48659fa8">
 
+## Test Program
+rEPLACE EARLIER program with simple 
+```m4_test_prog()```
+\<img width="960" alt="image" src="https://github.com/vjkr/Building_RISC-V_CPU_Core/assets/16399079/bb628f9d-e804-481f-af3f-50819e5a6d0a">
+\Lot of testing is required. I will keep it for future work
+tHIS IS Overall a great experience with RISC-V!!\
 
 
 
